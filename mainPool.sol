@@ -5,16 +5,16 @@ import "./AccessControl.sol";
 import "./IMultisig.sol";
 
 contract PoolVault is AccessControl, IMultisig {
-   mapping(address => Pool) public pools; // complex struct for storing pool data
-   mapping(address => mapping(uint256 => Transaction)) public transactions; // complex mapping for transactions
-   mapping(address => mapping(uint256 => mapping(address => bool))) public votes; // complex mapping for votes
+   mapping(address => Pool) public pools; 
+   mapping(address => mapping(uint256 => Transaction)) public transactions; 
+   mapping(address => mapping(uint256 => mapping(address => bool))) public votes; 
 
    struct Pool {
        address owner;
        uint256 stakeAmount;
        address[] members;
        uint256[] transactionIds;
-       mapping(address => bool) isMember; // mapping to check if an address is a member
+       mapping(address => bool) isMember;
    }
 
    struct Transaction {
@@ -23,7 +23,7 @@ contract PoolVault is AccessControl, IMultisig {
        bytes data;
        uint256 requiredVotes;
        uint256 voteCount;
-       mapping(address => bool) hasVoted; // mapping to check if a member has voted
+       mapping(address => bool) hasVoted; 
        bool executed;
    }
 
@@ -117,16 +117,16 @@ contract PoolVault is AccessControl, IMultisig {
    }
 
    function addSignature(uint256 _transactionId, bytes memory _signature) external override {
-       // Implementation for adding signatures to transactions
+       // ...after beta
    }
 
    function checkSignatures(uint256 _transactionId) public view override returns (bool) {
-       // Implementation for checking if a transaction has enough signatures
+       // ...after beta
        return true;
    }
 
    function verifyProof(bytes memory _proof, address _publicKey) public override returns (bool) {
-       // Implementation for verifying zk-SNARK proofs
+       // ...after beta
        return AccessControl.verifyProof(_proof, _publicKey);
    }
 }
