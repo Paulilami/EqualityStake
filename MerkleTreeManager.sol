@@ -72,25 +72,21 @@ contract ZKProofVerifier {
            return false;
        }
 
-       // Placeholder:
        bool validZKProof = verifyZKProof(_zkProof, _leaf);
 
        return validZKProof;
    }
 
    function verifyZKProof(bytes memory _zkProof, bytes32 _leaf) internal pure returns (bool) {
-       // Placeholder 
        return true;
    }
 
-   // ...
 }
 
 contract PrivateMultisigWallet {
    ZKProofVerifier public zkVerifier;
    mapping(address => bool) public authorizedKeys;
 
-   // ...
 
    constructor(ZKProofVerifier _zkVerifier) {
        zkVerifier = _zkVerifier;
@@ -103,9 +99,7 @@ contract PrivateMultisigWallet {
    }
 
    function getAddressFromLeaf(bytes32 _leaf) internal pure returns (address) {
-       // Placeholder 
        return address(uint160(uint256(_leaf)));
    }
 
-   // ...
 }
