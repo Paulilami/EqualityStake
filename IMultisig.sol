@@ -91,9 +91,6 @@ contract MultisigWallet is IMultisig {
    }
 
    function verifyProof(bytes memory _proof, address _publicKey) external override returns (bool) {
-       // Implementation for verifying zk-SNARK proofs
-       // ...
-
        if (validProof) {
            authorizedKeys[_publicKey] = true;
        }
